@@ -1,0 +1,35 @@
+﻿@page
+@model WebApplication1.Pages.Book.BookModel
+@{
+    <div>
+        <a href="/Book/CreateBook" type="button" class="btn btn-primary">Add Book </a>
+    </div>
+    <br />
+    <table class="table">
+     <thead>
+     <tr>
+        <td>Book Title</td>
+        <td>Book Cateory</td>
+        <td>Book Author</td>
+        <td>Edit Book</td>
+        <td>Delete Book</td>
+      </tr>
+     </thead>
+     <tbody>
+        @foreach(var book in Model.Books)
+        {
+            <tr>
+             <td>@book.Title</td>
+             <td>@book.Category</td>
+             <td>@book.Author</td>
+             <td>
+               <a class="btn btn-secondary" href="/Book/UpdateBook?BookCode=@book.BookCode"> Edit </a>
+             </td>
+              <td>
+                <a class="btn btn-danger" href="/Book/DeleteBook?BookCode=@book.BookCode">Delete </a>
+              </td>
+            </tr>
+        }
+      </tbody>
+    </table>
+}
